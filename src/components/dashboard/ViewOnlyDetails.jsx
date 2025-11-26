@@ -23,6 +23,9 @@ const DetailCard = ({ title, children }) => (
 
 export const PersonalDetailsView = ({ data }) => (
   <DetailCard title="Personal Details">
+    <div className="flex justify-center mb-6">
+      <img className="h-24 w-24 rounded-full" src={data.avatarUrl} alt={data.fullName} />
+    </div>
     <DetailItem label="Full Name" value={data.fullName} />
     <DetailItem label="Date of Birth" value={data.dob} />
     <DetailItem label="Gender" value={data.gender} />

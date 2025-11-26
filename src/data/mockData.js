@@ -13,6 +13,7 @@ export const employeeUsers = [
     role: 'employee',
     personalDetails: {
       fullName: 'Md Zakir Hussain',
+      avatarUrl: '/avatars/Male1.png',
       dob: '1998-08-10',
       gender: 'Male',
       age: 26,
@@ -75,8 +76,15 @@ export const employeeUsers = [
       aadharCard: '123412341234',
       bankName: 'Deccan Bank',
       branch: 'Madhapur',
-      ifscCode: 'DBIN000789',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+        { month: 'April', year: 2024, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+        { month: 'March', year: 2024, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+        { month: 'February', year: 2024, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+        { month: 'January', year: 2024, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+        { month: 'December', year: 2023, basic: 50000, allowances: 10000, deductions: 5000, net: 55000 },
+      ]
     },
   },
   {
@@ -85,6 +93,7 @@ export const employeeUsers = [
     role: 'employee',
     personalDetails: {
       fullName: 'Aftab Alam',
+      avatarUrl: '/avatars/Male2.png',
       dob: '1997-05-20',
       gender: 'Male',
       age: 27,
@@ -147,8 +156,15 @@ export const employeeUsers = [
       aadharCard: '234523452345',
       bankName: 'Capital Bank',
       branch: 'Chandni Chowk',
-      ifscCode: 'CBIN000111',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 },
+        { month: 'April', year: 2024, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 },
+        { month: 'March', year: 2024, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 },
+        { month: 'February', year: 2024, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 },
+        { month: 'January', year: 2024, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 },
+        { month: 'December', year: 2023, basic: 60000, allowances: 12000, deductions: 6000, net: 66000 }
+      ]
     },
   },
   {
@@ -157,6 +173,7 @@ export const employeeUsers = [
     role: 'employee',
     personalDetails: {
       fullName: 'Sana Jampula',
+      avatarUrl: '/avatars/Female1.png',
       dob: '1999-03-15',
       gender: 'Female',
       age: 25,
@@ -221,6 +238,14 @@ export const employeeUsers = [
       branch: 'Indiranagar',
       ifscCode: 'GCBIN000222',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+        { month: 'April', year: 2024, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+        { month: 'March', year: 2024, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+        { month: 'February', year: 2024, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+        { month: 'January', year: 2024, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+        { month: 'December', year: 2023, basic: 55000, allowances: 11000, deductions: 5500, net: 60500 },
+      ]
     },
   },
   {
@@ -229,6 +254,7 @@ export const employeeUsers = [
     role: 'employee',
     personalDetails: {
       fullName: 'Sathwika Hariyala',
+      avatarUrl: '/avatars/Female2.png',
       dob: '2000-01-25',
       gender: 'Female',
       age: 24,
@@ -293,6 +319,14 @@ export const employeeUsers = [
       branch: 'Adyar',
       ifscCode: 'MBIN000333',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+        { month: 'April', year: 2024, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+        { month: 'March', year: 2024, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+        { month: 'February', year: 2024, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+        { month: 'January', year: 2024, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+        { month: 'December', year: 2023, basic: 52000, allowances: 10400, deductions: 5200, net: 57200 },
+      ]
     },
   },
   {
@@ -300,9 +334,10 @@ export const employeeUsers = [
     password: 'password123',
     role: 'employee',
     personalDetails: {
-      fullName: 'Jane Doe',
+      fullName: 'John Doe',
+      avatarUrl: '/avatars/Male4.png',
       dob: '1990-05-15',
-      gender: 'Female',
+      gender: 'Male',
       age: 34,
       currentAddress: {
         city: 'New York',
@@ -365,6 +400,14 @@ export const employeeUsers = [
       branch: 'Downtown',
       ifscCode: 'GBIN000123',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+        { month: 'April', year: 2024, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+        { month: 'March', year: 2024, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+        { month: 'February', year: 2024, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+        { month: 'January', year: 2024, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+        { month: 'December', year: 2023, basic: 70000, allowances: 14000, deductions: 7000, net: 77000 },
+      ]
     },
   },
   {
@@ -373,6 +416,7 @@ export const employeeUsers = [
     role: 'employee',
     personalDetails: {
       fullName: 'Mark Smith',
+      avatarUrl: '/avatars/Male3.png',
       dob: '1992-11-20',
       gender: 'Male',
       age: 31,
@@ -424,6 +468,14 @@ export const employeeUsers = [
       branch: 'Mission',
       ifscCode: 'TBIN000456',
       ctcBreakup: 'Available upon request',
+      payslips: [
+        { month: 'May', year: 2024, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+        { month: 'April', year: 2024, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+        { month: 'March', year: 2024, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+        { month: 'February', year: 2024, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+        { month: 'January', year: 2024, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+        { month: 'December', year: 2023, basic: 75000, allowances: 15000, deductions: 7500, net: 82500 },
+      ]
     },
   },
 ];

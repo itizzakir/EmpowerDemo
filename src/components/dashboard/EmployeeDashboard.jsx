@@ -1,7 +1,7 @@
 // src/components/dashboard/EmployeeDashboard.jsx
 import React from 'react';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import {
   PersonalDetailsView,
   ProfessionalDetailsView,
@@ -11,8 +11,18 @@ import {
 
 const EmployeeDashboard = ({ employee }) => {
   const handleDownloadPayslips = () => {
-    alert('Downloading last 6 months payslips...');
-    // In a real app, this would trigger an API call
+    const doc = new jsPDF();
+    doc.text('Payslips - Last 6 Months', 14, 16);
+
+    autoTable(doc, {
+      startY: 20,
+      head: [['Month', 'Year', 'Basic', 'Allowances', 'Deductions', 'Net Salary']],
+      body: employee.financeDetails.payslips.map(p => [p.month, p.year, p.basic, p.allowances, p.deductions, p.net]),
+      theme: 'striped',
+      headStyles: { fillColor: [75, 85, 99] },
+    });
+
+    doc.save(`${employee.personalDetails.fullName.replace(' ', '_')}_payslips.pdf`);
   };
 
   const handleGeneratePdf = () => {
@@ -21,12 +31,15 @@ const EmployeeDashboard = ({ employee }) => {
     doc.text('Employee Details', 14, 16);
     
     // Personal Details
-    doc.autoTable({
+    autoTable(doc, {
       startY: 20,
       head: [['Personal Details', '']],
       body: Object.entries(employee.personalDetails).map(([key, value]) => {
+        if (key === 'currentAddress' || key === 'permanentAddress') {
+          return [key, `${value.addressLine1}, ${value.city} - ${value.pinCode}`];
+        }
         if (typeof value === 'object' && value !== null) {
-          return [key, JSON.stringify(value, null, 2)];
+          return [key, '']; // Skip other objects for now
         }
         return [key, value];
       }),
@@ -35,11 +48,17 @@ const EmployeeDashboard = ({ employee }) => {
     });
 
     // Professional Details
-    doc.autoTable({
+    autoTable(doc, {
       head: [['Professional Details', '']],
       body: Object.entries(employee.professionalDetails).map(([key, value]) => {
+        if (key === 'officeAddress') {
+            return [key, `${value.addressLine1}, ${employee.professionalDetails.city} - ${value.pinCode}`];
+        }
+        if (key === 'employmentHistory') {
+            return [key, value.map(job => `${job.companyName} (${job.joiningDate} to ${job.endDate})`).join('\n')];
+        }
         if (typeof value === 'object' && value !== null) {
-          return [key, JSON.stringify(value, null, 2)];
+            return [key, '']; // Skip other objects
         }
         return [key, value];
       }),
@@ -48,7 +67,7 @@ const EmployeeDashboard = ({ employee }) => {
     });
 
     // Project Details
-    doc.autoTable({
+    autoTable(doc, {
         head: [['Project Details', 'Client', 'Start Date', 'End Date']],
         body: employee.projectDetails.map(p => [p.projectCode, p.clientName, p.startDate, p.endDate]),
         theme: 'striped',
@@ -56,7 +75,7 @@ const EmployeeDashboard = ({ employee }) => {
       });
 
     // Finance Details
-    doc.autoTable({
+    autoTable(doc, {
       head: [['Finance Details', '']],
       body: Object.entries(employee.financeDetails).map(([key, value]) => [key, value]),
       theme: 'striped',

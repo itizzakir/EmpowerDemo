@@ -8,6 +8,9 @@ const EmployeeList = ({ employees, onEdit, onDelete, onView }) => {
         <thead className="bg-slate-50">
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+              Avatar
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
               Emp Code
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
@@ -30,6 +33,9 @@ const EmployeeList = ({ employees, onEdit, onDelete, onView }) => {
         <tbody className="bg-white divide-y divide-slate-200">
           {employees.map((emp) => (
             <tr key={emp.id}>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <img className="h-10 w-10 rounded-full" src={emp.personalDetails.avatarUrl} alt={emp.personalDetails.fullName} />
+              </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                 {emp.professionalDetails.employmentCode}
               </td>

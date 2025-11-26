@@ -1,7 +1,7 @@
 // src/components/dashboard/AdminDashboard.jsx
 import React, { useState, useEffect } from 'react';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import { employeeUsers as initialData } from '../../data/mockData';
 import EmployeeList from './EmployeeList';
 import EmployeeForm from './EmployeeForm';
@@ -90,9 +90,16 @@ const AdminDashboard = () => {
     setIsModalOpen(false);
   };
 
+  const handleResetData = () => {
+    if (window.confirm('Are you sure you want to reset all data? This will clear all changes and restore the original employee list.')) {
+      localStorage.removeItem('employees');
+      window.location.reload();
+    }
+  };
+
   const handleGeneratePdf = () => {
     const doc = new jsPDF();
-    doc.autoTable({
+    autoTable(doc, {
       head: [['Emp Code', 'Name', 'Company Email', 'Manager']],
       body: employees.map(emp => [
         emp.professionalDetails.employmentCode,
@@ -117,6 +124,12 @@ const AdminDashboard = () => {
               <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
             </svg>
             Add Employee
+          </button>
+          <button
+            onClick={handleResetData}
+            className="inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          >
+            Reset Data
           </button>
           <button
             onClick={handleGeneratePdf}
